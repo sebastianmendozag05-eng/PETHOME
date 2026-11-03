@@ -1,0 +1,15 @@
+1. Adoptante
+Quién es: persona o familia de Tizayuca y alrededores que quiere adoptar un perro o gato.
+Necesita: saber qué animales hay disponibles, filtrar por lo que le conviene (especie, edad, tamaño) y conocer los requisitos antes de contactar.
+Problema hoy: la información está dispersa en redes sociales, no sabe dónde buscar ni con quién hablar.
+En la app: explora el catálogo, aplica filtros, revisa la ficha, guarda favoritos, consulta requisitos y contacta a quien cuida al animal.
+2. Particular que da en adopción
+Quién es: persona con una camada o un animal que no puede conservar.
+Necesita: un lugar común donde publicar al animal y que lo vea gente interesada.
+Problema hoy: publica en grupos o redes donde la publicación se pierde entre otras.
+En la app: llena el formulario (datos del animal, foto, contacto) con validaciones. En la Etapa 1 la publicación es local; compartirla entre usuarios queda para la Etapa 2.
+3. Albergue o colectivo
+Quién es: grupo que cuida animales rescatados.
+Necesita: dar visibilidad a varios animales y orientar a los adoptantes sobre sus requisitos.
+Problema hoy: difunde de forma dispersa y sin un canal central.
+En la app: aparece como origen del animal en el catálogo y publica sus fichas. El panel propio para albergues queda para la Etapa 2.
