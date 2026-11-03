@@ -1,0 +1,22 @@
+Requisitos Must (Etapa 1)
+M1. La app muestra una pantalla de inicio (Splash/Onboarding) que explica el propósito de PETHOME.
+M2. El usuario puede ver un catálogo de perros y gatos con datos locales.
+M3. El usuario puede buscar por nombre y filtrar por especie, edad, tamaño y origen (particular o albergue).
+M4. El usuario puede abrir la ficha de un animal con foto, descripción, datos y contacto.
+M5. El usuario puede marcar y desmarcar favoritos y verlos en una pantalla propia.
+M6. El usuario puede consultar los requisitos para adoptar.
+M7. El usuario puede publicar un animal mediante un formulario con validaciones (campos obligatorios, formato de contacto, edad válida).
+M8. La app usa un tema global y una capa de datos con Model y Repository, lista para cambiar a Firebase.
+
+Requisitos Should
+S1. El usuario puede ordenar el catálogo (más reciente, edad).
+S2. La ficha permite contactar por llamada o WhatsApp con un botón.
+S3. Se muestra un mensaje claro cuando no hay resultados.
+S4. Los favoritos persisten al cerrar la app.
+
+Requisitos Could (Etapa 2 / backlog)
+C1. Inicio de sesión de usuarios.
+C2. Publicaciones compartidas entre usuarios reales con Firebase.
+C3. Panel para albergues.
+C4. Estado de la publicación (disponible, adoptado).
+C5. Notificaciones sobre nuevos animales.
