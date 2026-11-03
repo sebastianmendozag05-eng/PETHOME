@@ -1,0 +1,26 @@
+[
+  {
+    "id": "a1",
+    "nombre": "Luna",
+    "especie": "perro",
+    "edad": "joven",
+    "tamano": "mediano",
+    "origen": "albergue",
+    "descripcion": "Dato de ejemplo: cariñosa y juguetona.",
+    "imagen": "assets/images/luna.jpg",
+    "contacto": "7710000000",
+    "requisitos": ["Mayor de edad", "Compromiso de esterilización"]
+  },
+  {
+    "id": "a2",
+    "nombre": "Michi",
+    "especie": "gato",
+    "edad": "cría",
+    "tamano": "pequeño",
+    "origen": "particular",
+    "descripcion": "Dato de ejemplo: cría recién destetada.",
+    "imagen": "assets/images/michi.jpg",
+    "contacto": "7710000001",
+    "requisitos": ["Hogar con malla en ventanas"]
+  }
+]
