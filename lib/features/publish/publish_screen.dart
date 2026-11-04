@@ -71,9 +71,8 @@ class _PublishScreenState extends State<PublishScreen> {
     await repo.agregarAnimal(animal);
 
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Animal publicado')),
-    );
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text('Animal publicado')));
     Navigator.pop(context);
   }
 
@@ -109,38 +108,48 @@ class _PublishScreenState extends State<PublishScreen> {
           padding: const EdgeInsets.all(16),
           children: [
             CustomTextField(
-                label: 'Nombre', controller: _nombre, validator: _obligatorio),
+              label: 'Nombre',
+              controller: _nombre,
+              validator: _obligatorio,
+            ),
             _desplegable(
-                label: 'Especie',
-                opciones: const ['perro', 'gato'],
-                onChanged: (v) => _especie = v),
+              label: 'Especie',
+              opciones: const ['perro', 'gato'],
+              onChanged: (v) => _especie = v,
+            ),
             _desplegable(
-                label: 'Edad',
-                opciones: const ['cría', 'joven', 'adulto'],
-                onChanged: (v) => _edad = v),
+              label: 'Edad',
+              opciones: const ['cría', 'joven', 'adulto'],
+              onChanged: (v) => _edad = v,
+            ),
             _desplegable(
-                label: 'Tamaño',
-                opciones: const ['pequeño', 'mediano', 'grande'],
-                onChanged: (v) => _tamano = v),
+              label: 'Tamaño',
+              opciones: const ['pequeño', 'mediano', 'grande'],
+              onChanged: (v) => _tamano = v,
+            ),
             _desplegable(
-                label: 'Origen',
-                opciones: const ['particular', 'albergue'],
-                onChanged: (v) => _origen = v),
+              label: 'Origen',
+              opciones: const ['particular', 'albergue'],
+              onChanged: (v) => _origen = v,
+            ),
             CustomTextField(
-                label: 'Descripción',
-                controller: _descripcion,
-                maxLines: 4,
-                validator: _obligatorio),
+              label: 'Descripción',
+              controller: _descripcion,
+              maxLines: 4,
+              validator: _obligatorio,
+            ),
             CustomTextField(
-                label: 'Contacto',
-                hint: 'Teléfono (10 dígitos) o correo',
-                controller: _contacto,
-                keyboardType: TextInputType.emailAddress,
-                validator: _validarContacto),
+              label: 'Contacto',
+              hint: 'Teléfono (10 dígitos) o correo',
+              controller: _contacto,
+              keyboardType: TextInputType.emailAddress,
+              validator: _validarContacto,
+            ),
             CustomTextField(
-                label: 'Requisitos (uno por línea, opcional)',
-                controller: _requisitos,
-                maxLines: 3),
+              label: 'Requisitos (uno por línea, opcional)',
+              controller: _requisitos,
+              maxLines: 3,
+            ),
             FilledButton(onPressed: _enviar, child: const Text('Publicar')),
           ],
         ),

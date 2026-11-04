@@ -24,15 +24,15 @@ class Animal {
   });
 
   factory Animal.fromJson(Map<String, dynamic> json) => Animal(
-        id: json['id'] as String,
-        nombre: json['nombre'] as String,
-        especie: json['especie'] as String,
-        edad: json['edad'] as String,
-        tamano: json['tamano'] as String,
-        origen: json['origen'] as String,
-        descripcion: json['descripcion'] as String,
-        imagen: json['imagen'] as String,
-        contacto: json['contacto'] as String,
-        requisitos: List<String>.from(json['requisitos'] as List),
-      );
+    id: json['id'] as String,
+    nombre: json['nombre'] as String,
+    especie: json['especie'] as String,
+    edad: json['edad'] as String,
+    tamano: json['tamano'] as String,
+    origen: json['origen'] as String,
+    descripcion: json['descripcion'] as String,
+    imagen: json['imagen'] as String,
+    contacto: json['contacto'] as String,
+    requisitos: List<String>.from(json['requisitos'] as List),
+  );
 }

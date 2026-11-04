@@ -28,7 +28,6 @@ class SplashScreen extends StatelessWidget {
                   children: [
                     const Spacer(flex: 2),
                     Container(
-                      padding: const EdgeInsets.all(32),
                       decoration: BoxDecoration(
                         color: c.surface,
                         shape: BoxShape.circle,
@@ -40,7 +39,16 @@ class SplashScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: Icon(Icons.pets, size: 88, color: c.primary),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/logo.jpg',
+                          width: 160,
+                          height: 160,
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, _, _) =>
+                              Icon(Icons.pets, size: 88, color: c.primary),
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 32),
                     Text(
