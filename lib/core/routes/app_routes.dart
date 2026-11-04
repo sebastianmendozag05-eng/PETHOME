@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../features/splash/splash_screen.dart';
+import '../../features/favorites/favorites_screen.dart';
+import '../../features/publish/publish_screen.dart';
 
 class AppRoutes {
   static const splash = '/';
@@ -11,7 +13,8 @@ class AppRoutes {
 
   static final Map<String, WidgetBuilder> routes = {
     splash: (_) => const SplashScreen(),
-    // Cada integrante agrega aquí UNA línea con su pantalla:
+    favorites: (_) => const FavoritesScreen(),
+    publish: (_) => const PublishScreen(),
     // catalog: (_) => const CatalogScreen(),
   };
 }
