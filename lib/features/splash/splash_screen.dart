@@ -69,7 +69,11 @@ class SplashScreen extends StatelessWidget {
                     ),
                     const Spacer(flex: 3),
                     FilledButton(
-                        onPressed: () {}, child: const Text('Comenzar')),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/catalog');
+                        },
+                        child: const Text('Comenzar'),
+                        ),
                     const SizedBox(height: 12),
                     Text('Tizayuca, Hidalgo',
                         style: t.bodySmall
