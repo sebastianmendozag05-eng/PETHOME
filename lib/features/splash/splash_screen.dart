@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/routes/app_routes.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -70,6 +71,11 @@ class SplashScreen extends StatelessWidget {
                     const Spacer(flex: 3),
                     FilledButton(
                         onPressed: () {}, child: const Text('Comenzar')),
+                    TextButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.requirements),
+                      child: const Text('Requisitos para adoptar'),
+                    ),
                     const SizedBox(height: 12),
                     Text('Tizayuca, Hidalgo',
                         style: t.bodySmall
