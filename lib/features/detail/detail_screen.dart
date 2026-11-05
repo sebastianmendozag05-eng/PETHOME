@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../models/animal.dart';
+import '../favorites/favorites_provider.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key});
@@ -11,9 +13,22 @@ class DetailScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as Animal;
 
     final color = Theme.of(context).colorScheme;
+    final favs = context.watch<FavoritesProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(animal.nombre)),
+      appBar: AppBar(title: Text(animal.nombre),
+      actions: [
+        IconButton(
+          tooltip: 'Favorito',
+          icon: Icon(
+            favs.isFavorite(animal.id)
+                ? Icons.favorite
+                : Icons.favorite_border,
+          ),
+          onPressed: () => favs.toggle(animal.id),
+        ),
+      ],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [

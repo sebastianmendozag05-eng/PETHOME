@@ -1,10 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../models/animal.dart';
 import '../../data/animal_repository.dart';
 import '../../core/widgets/animal_card.dart';
 import '../../core/widgets/filter_bar.dart';
+import '../../core/routes/app_routes.dart';
 
 class CatalogScreen extends StatefulWidget {
   const CatalogScreen({super.key});
@@ -26,9 +27,9 @@ class _CatalogScreenState extends State<CatalogScreen> {
 
   List<Animal> filtrar(List<Animal> lista) {
     return lista.where((animal) {
-      final coincideNombre = animal.nombre
-          .toLowerCase()
-          .contains(busqueda.toLowerCase().trim());
+      final coincideNombre = animal.nombre.toLowerCase().contains(
+        busqueda.toLowerCase().trim(),
+      );
 
       final coincideEspecie =
           (filtros['especie'] ?? 'Todos') == 'Todos' ||
@@ -59,20 +60,34 @@ class _CatalogScreenState extends State<CatalogScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mascotas en adopción'),
+        actions: [
+          IconButton(
+            tooltip: 'Mis favoritos',
+            icon: const Icon(Icons.favorite),
+            onPressed: () => Navigator.pushNamed(context, AppRoutes.favorites),
+          ),
+          IconButton(
+            tooltip: 'Publicar',
+            icon: const Icon(Icons.add_circle_outline),
+            onPressed: () async {
+              await Navigator.pushNamed(context, AppRoutes.publish);
+              if (!mounted) return;
+              setState(() {
+                animales = context.read<AnimalRepository>().obtenerAnimales();
+              });
+            },
+          ),
+        ],
       ),
       body: FutureBuilder<List<Animal>>(
         future: animales,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return const Center(
-              child: Text('Error al cargar mascotas'),
-            );
+            return const Center(child: Text('Error al cargar mascotas'));
           }
 
           if (!snapshot.hasData) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
 
           final lista = filtrar(snapshot.data!);
@@ -95,9 +110,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
               Expanded(
                 child: lista.isEmpty
                     ? const Center(
-                        child: Text(
-                          'No encontramos mascotas con esos filtros',
-                        ),
+                        child: Text('No encontramos mascotas con esos filtros'),
                       )
                     : ListView.builder(
                         itemCount: lista.length,
