@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:pethome/data/animal_repository.dart';
 import 'package:pethome/models/animal.dart';
 
+import 'package:pethome/core/widgets/animal_card.dart';
+
 import 'favorites_provider.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -33,39 +35,35 @@ class FavoritesScreen extends StatelessWidget {
                 .toList();
 
             if (lista.isEmpty) {
-              return const Center(
+              return Center(
                 child: Padding(
-                  padding: EdgeInsets.all(24),
-                  child: Text(
-                    'Aún no tienes favoritos.\nGuarda animales desde el catálogo.',
-                    textAlign: TextAlign.center,
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.favorite_border,
+                        size: 56,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'Aún no tienes favoritos.\nGuarda animales desde el catálogo.',
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                 ),
               );
             }
 
             return ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 8),
               itemCount: lista.length,
               itemBuilder: (context, i) {
                 final a = lista[i];
-                return ListTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(
-                      a.imagen,
-                      width: 64,
-                      height: 64,
-                      fit: BoxFit.cover,
-                      alignment: Alignment.topCenter,
-                      errorBuilder: (_, _, _) => const Icon(Icons.pets),
-                    ),
-                  ),
-                  title: Text(a.nombre),
-                  subtitle: Text('${a.especie} · ${a.edad} · ${a.tamano}'),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.favorite, color: Colors.red),
-                    onPressed: () => favoritos.toggle(a.id),
-                  ),
+                return AnimalCard(
+                  animal: a,
                   onTap: () =>
                       Navigator.pushNamed(context, '/detail', arguments: a),
                 );
