@@ -86,7 +86,8 @@ class SplashScreen extends StatelessWidget {
                     ),
                     const Spacer(flex: 3),
                     FilledButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.catalog),
                       child: const Text('Comenzar'),
                     ),
                     TextButton(
