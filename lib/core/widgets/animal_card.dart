@@ -24,11 +24,12 @@ class AnimalCard extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: 115,
-              height: 120,
+              width: 120,
+              height: 130,
               child: Image.asset(
                 animal.imagen,
                 fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
                 errorBuilder: (_, _, _) => Container(
                   color: color.primaryContainer,
                   child: Icon(Icons.pets, size: 45, color: color.primary),

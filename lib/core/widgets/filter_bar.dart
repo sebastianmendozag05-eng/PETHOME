@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FilterBar extends StatelessWidget {
@@ -43,37 +42,43 @@ class FilterBar extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        Wrap(
-          spacing: 12,
-          runSpacing: 12,
-          children: opciones.entries.map((entrada) {
-            return SizedBox(
-              width: 150,
-              child: DropdownButtonFormField<String>(
-                initialValue: filtros[entrada.key] ?? 'Todos',
-                isExpanded: true,
-                decoration: InputDecoration(
-                  labelText: etiquetas[entrada.key],
-                  border: const OutlineInputBorder(),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 12,
+        LayoutBuilder(
+          builder: (context, c) {
+            final cols = c.maxWidth >= 600 ? 4 : 2;
+            final ancho = (c.maxWidth - 12 * (cols - 1)) / cols;
+            return Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              children: opciones.entries.map((entrada) {
+                return SizedBox(
+                  width: ancho,
+                  child: DropdownButtonFormField<String>(
+                    initialValue: filtros[entrada.key] ?? 'Todos',
+                    isExpanded: true,
+                    decoration: InputDecoration(
+                      labelText: etiquetas[entrada.key],
+                      border: const OutlineInputBorder(),
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 12,
+                      ),
+                    ),
+                    items: entrada.value.map((opcion) {
+                      return DropdownMenuItem(
+                        value: opcion,
+                        child: Text(opcion),
+                      );
+                    }).toList(),
+                    onChanged: (valor) {
+                      if (valor != null) {
+                        onFiltro(entrada.key, valor);
+                      }
+                    },
                   ),
-                ),
-                items: entrada.value.map((opcion) {
-                  return DropdownMenuItem(
-                    value: opcion,
-                    child: Text(opcion),
-                  );
-                }).toList(),
-                onChanged: (valor) {
-                  if (valor != null) {
-                    onFiltro(entrada.key, valor);
-                  }
-                },
-              ),
+                );
+              }).toList(),
             );
-          }).toList(),
+          },
         ),
       ],
     );
