@@ -9,7 +9,10 @@
     "descripcion": "Dato de ejemplo: cariñosa y juguetona.",
     "imagen": "assets/images/luna.jpg",
     "contacto": "7710000000",
-    "requisitos": ["Mayor de edad", "Compromiso de esterilización"]
+    "requisitos": [
+      "Mayor de edad",
+      "Compromiso de esterilización"
+    ]
   },
   {
     "id": "a2",
@@ -21,6 +24,160 @@
     "descripcion": "Dato de ejemplo: cría recién destetada.",
     "imagen": "assets/images/michi.jpg",
     "contacto": "7710000001",
-    "requisitos": ["Hogar con malla en ventanas"]
+    "requisitos": [
+      "Hogar con malla en ventanas"
+    ]
+  },
+  {
+    "id": "a3",
+    "nombre": "Rocky",
+    "especie": "perro",
+    "edad": "adulto",
+    "tamano": "grande",
+    "origen": "albergue",
+    "descripcion": "Dato de ejemplo: tranquilo y leal, ideal para casa con patio.",
+    "imagen": "assets/images/rocky.jpg",
+    "contacto": "7710000002",
+    "requisitos": [
+      "Mayor de edad",
+      "Espacio amplio",
+      "Compromiso de esterilización"
+    ]
+  },
+  {
+    "id": "a4",
+    "nombre": "Canela",
+    "especie": "perro",
+    "edad": "cría",
+    "tamano": "pequeño",
+    "origen": "particular",
+    "descripcion": "Dato de ejemplo: cachorra juguetona que busca familia.",
+    "imagen": "assets/images/canela.jpg",
+    "contacto": "7710000003",
+    "requisitos": [
+      "Mayor de edad",
+      "Seguimiento posterior"
+    ]
+  },
+  {
+    "id": "a5",
+    "nombre": "Toby",
+    "especie": "perro",
+    "edad": "joven",
+    "tamano": "mediano",
+    "origen": "albergue",
+    "descripcion": "Dato de ejemplo: activo y sociable, le gusta correr.",
+    "imagen": "assets/images/toby.jpg",
+    "contacto": "7710000004",
+    "requisitos": [
+      "Mayor de edad",
+      "Tiempo para paseos diarios"
+    ]
+  },
+  {
+    "id": "a6",
+    "nombre": "Bruno",
+    "especie": "perro",
+    "edad": "adulto",
+    "tamano": "mediano",
+    "origen": "particular",
+    "descripcion": "Dato de ejemplo: obediente y cariñoso con los niños.",
+    "imagen": "assets/images/bruno.jpg",
+    "contacto": "7710000005",
+    "requisitos": [
+      "Hogar adecuado",
+      "Compromiso de esterilización"
+    ]
+  },
+  {
+    "id": "a7",
+    "nombre": "Max",
+    "especie": "perro",
+    "edad": "cría",
+    "tamano": "mediano",
+    "origen": "albergue",
+    "descripcion": "Dato de ejemplo: cachorro curioso, ya vacunado.",
+    "imagen": "assets/images/max.jpg",
+    "contacto": "7710000006",
+    "requisitos": [
+      "Mayor de edad",
+      "Seguimiento posterior"
+    ]
+  },
+  {
+    "id": "a8",
+    "nombre": "Nala",
+    "especie": "gato",
+    "edad": "joven",
+    "tamano": "pequeño",
+    "origen": "albergue",
+    "descripcion": "Dato de ejemplo: gata dulce, se lleva bien con otros gatos.",
+    "imagen": "assets/images/nala.jpg",
+    "contacto": "7710000007",
+    "requisitos": [
+      "Hogar con malla en ventanas",
+      "Compromiso de esterilización"
+    ]
+  },
+  {
+    "id": "a9",
+    "nombre": "Simba",
+    "especie": "gato",
+    "edad": "adulto",
+    "tamano": "mediano",
+    "origen": "particular",
+    "descripcion": "Dato de ejemplo: tranquilo, le gusta dormir al sol.",
+    "imagen": "assets/images/simba.jpg",
+    "contacto": "7710000008",
+    "requisitos": [
+      "Mayor de edad",
+      "Hogar adecuado"
+    ]
+  },
+  {
+    "id": "a10",
+    "nombre": "Pelusa",
+    "especie": "gato",
+    "edad": "cría",
+    "tamano": "pequeño",
+    "origen": "albergue",
+    "descripcion": "Dato de ejemplo: gatita de pelo largo, muy sociable.",
+    "imagen": "assets/images/pelusa.jpg",
+    "contacto": "7710000009",
+    "requisitos": [
+      "Hogar con malla en ventanas",
+      "Seguimiento posterior"
+    ]
+  },
+  {
+    "id": "a11",
+    "nombre": "Tigre",
+    "especie": "gato",
+    "edad": "joven",
+    "tamano": "mediano",
+    "origen": "particular",
+    "descripcion": "Dato de ejemplo: explorador y juguetón.",
+    "imagen": "assets/images/tigre.jpg",
+    "contacto": "7710000010",
+    "requisitos": [
+      "Mayor de edad",
+      "Compromiso de esterilización"
+    ]
+  },
+  {
+    "id": "a12",
+    "nombre": "Coco",
+    "especie": "perro",
+    "edad": "joven",
+    "tamano": "grande",
+    "origen": "particular",
+    "descripcion": "Dato de ejemplo: enérgico y protector, busca un hogar con espacio.",
+    "imagen": "assets/images/coco.jpg",
+    "contacto": "7710000011",
+    "requisitos": [
+      "Mayor de edad",
+      "Espacio amplio",
+      "Compromiso de esterilización"
+    ]
   }
 ]
