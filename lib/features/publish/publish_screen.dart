@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../core/widgets/content_width.dart';
+
 import 'package:provider/provider.dart';
 import 'package:pethome/core/widgets/custom_text_field.dart';
 import 'package:pethome/data/animal_repository.dart';
@@ -102,56 +105,58 @@ class _PublishScreenState extends State<PublishScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Publicar animal')),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            CustomTextField(
-              label: 'Nombre',
-              controller: _nombre,
-              validator: _obligatorio,
-            ),
-            _desplegable(
-              label: 'Especie',
-              opciones: const ['perro', 'gato'],
-              onChanged: (v) => _especie = v,
-            ),
-            _desplegable(
-              label: 'Edad',
-              opciones: const ['cría', 'joven', 'adulto'],
-              onChanged: (v) => _edad = v,
-            ),
-            _desplegable(
-              label: 'Tamaño',
-              opciones: const ['pequeño', 'mediano', 'grande'],
-              onChanged: (v) => _tamano = v,
-            ),
-            _desplegable(
-              label: 'Origen',
-              opciones: const ['particular', 'albergue'],
-              onChanged: (v) => _origen = v,
-            ),
-            CustomTextField(
-              label: 'Descripción',
-              controller: _descripcion,
-              maxLines: 4,
-              validator: _obligatorio,
-            ),
-            CustomTextField(
-              label: 'Contacto',
-              hint: 'Teléfono (10 dígitos) o correo',
-              controller: _contacto,
-              keyboardType: TextInputType.emailAddress,
-              validator: _validarContacto,
-            ),
-            CustomTextField(
-              label: 'Requisitos (uno por línea, opcional)',
-              controller: _requisitos,
-              maxLines: 3,
-            ),
-            FilledButton(onPressed: _enviar, child: const Text('Publicar')),
-          ],
+      body: ContentWidth(
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              CustomTextField(
+                label: 'Nombre',
+                controller: _nombre,
+                validator: _obligatorio,
+              ),
+              _desplegable(
+                label: 'Especie',
+                opciones: const ['perro', 'gato'],
+                onChanged: (v) => _especie = v,
+              ),
+              _desplegable(
+                label: 'Edad',
+                opciones: const ['cría', 'joven', 'adulto'],
+                onChanged: (v) => _edad = v,
+              ),
+              _desplegable(
+                label: 'Tamaño',
+                opciones: const ['pequeño', 'mediano', 'grande'],
+                onChanged: (v) => _tamano = v,
+              ),
+              _desplegable(
+                label: 'Origen',
+                opciones: const ['particular', 'albergue'],
+                onChanged: (v) => _origen = v,
+              ),
+              CustomTextField(
+                label: 'Descripción',
+                controller: _descripcion,
+                maxLines: 4,
+                validator: _obligatorio,
+              ),
+              CustomTextField(
+                label: 'Contacto',
+                hint: 'Teléfono (10 dígitos) o correo',
+                controller: _contacto,
+                keyboardType: TextInputType.emailAddress,
+                validator: _validarContacto,
+              ),
+              CustomTextField(
+                label: 'Requisitos (uno por línea, opcional)',
+                controller: _requisitos,
+                maxLines: 3,
+              ),
+              FilledButton(onPressed: _enviar, child: const Text('Publicar')),
+            ],
+          ),
         ),
       ),
     );

@@ -1,10 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../models/animal.dart';
 import '../../data/animal_repository.dart';
 import '../../core/widgets/animal_card.dart';
 import '../../core/widgets/filter_bar.dart';
+import '../../core/widgets/content_width.dart';
+import '../../core/routes/app_routes.dart';
 
 class CatalogScreen extends StatefulWidget {
   const CatalogScreen({super.key});
@@ -26,9 +28,9 @@ class _CatalogScreenState extends State<CatalogScreen> {
 
   List<Animal> filtrar(List<Animal> lista) {
     return lista.where((animal) {
-      final coincideNombre = animal.nombre
-          .toLowerCase()
-          .contains(busqueda.toLowerCase().trim());
+      final coincideNombre = animal.nombre.toLowerCase().contains(
+        busqueda.toLowerCase().trim(),
+      );
 
       final coincideEspecie =
           (filtros['especie'] ?? 'Todos') == 'Todos' ||
@@ -58,68 +60,84 @@ class _CatalogScreenState extends State<CatalogScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mascotas en adopción'),
+        title: const Text('Mascotas'),
+        actions: [
+          IconButton(
+            tooltip: 'Mis favoritos',
+            icon: const Icon(Icons.favorite),
+            onPressed: () => Navigator.pushNamed(context, AppRoutes.favorites),
+          ),
+          IconButton(
+            tooltip: 'Publicar',
+            icon: const Icon(Icons.add_circle_outline),
+            onPressed: () async {
+              await Navigator.pushNamed(context, AppRoutes.publish);
+              if (!mounted) return;
+              setState(() {
+                animales = context.read<AnimalRepository>().obtenerAnimales();
+              });
+            },
+          ),
+        ],
       ),
-      body: FutureBuilder<List<Animal>>(
-        future: animales,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(
-              child: Text('Error al cargar mascotas'),
-            );
-          }
+      body: ContentWidth(
+        child: FutureBuilder<List<Animal>>(
+          future: animales,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return const Center(child: Text('Error al cargar mascotas'));
+            }
 
-          if (!snapshot.hasData) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+            if (!snapshot.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
 
-          final lista = filtrar(snapshot.data!);
+            final lista = filtrar(snapshot.data!);
 
-          return Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: FilterBar(
-                  busqueda: busqueda,
-                  onBusqueda: (valor) {
-                    setState(() => busqueda = valor);
-                  },
-                  filtros: filtros,
-                  onFiltro: (campo, valor) {
-                    setState(() => filtros[campo] = valor);
-                  },
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: FilterBar(
+                    busqueda: busqueda,
+                    onBusqueda: (valor) {
+                      setState(() => busqueda = valor);
+                    },
+                    filtros: filtros,
+                    onFiltro: (campo, valor) {
+                      setState(() => filtros[campo] = valor);
+                    },
+                  ),
                 ),
-              ),
-              Expanded(
-                child: lista.isEmpty
-                    ? const Center(
-                        child: Text(
-                          'No encontramos mascotas con esos filtros',
-                        ),
-                      )
-                    : ListView.builder(
-                        itemCount: lista.length,
-                        itemBuilder: (context, index) {
-                          final animal = lista[index];
+                Expanded(
+                  child: lista.isEmpty
+                      ? const Center(
+                          child: Text(
+                            'No encontramos mascotas con esos filtros',
+                          ),
+                        )
+                      : ListView.builder(
+                          itemCount: lista.length,
+                          itemBuilder: (context, index) {
+                            final animal = lista[index];
 
-                          return AnimalCard(
-                            animal: animal,
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                '/detail',
-                                arguments: animal,
-                              );
-                            },
-                          );
-                        },
-                      ),
-              ),
-            ],
-          );
-        },
+                            return AnimalCard(
+                              animal: animal,
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  '/detail',
+                                  arguments: animal,
+                                );
+                              },
+                            );
+                          },
+                        ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
