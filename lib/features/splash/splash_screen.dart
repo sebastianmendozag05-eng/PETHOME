@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/routes/app_routes.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -26,7 +28,6 @@ class SplashScreen extends StatelessWidget {
                   children: [
                     const Spacer(flex: 2),
                     Container(
-                      padding: const EdgeInsets.all(32),
                       decoration: BoxDecoration(
                         color: c.surface,
                         shape: BoxShape.circle,
@@ -38,18 +39,31 @@ class SplashScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: Icon(Icons.pets, size: 88, color: c.primary),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/logo.jpg',
+                          width: 160,
+                          height: 160,
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, _, _) =>
+                              Icon(Icons.pets, size: 88, color: c.primary),
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 32),
-                    Text('PETHOME',
-                        style: t.displaySmall?.copyWith(
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: 4,
-                            color: c.onPrimaryContainer)),
+                    Text(
+                      'PETHOME',
+                      style: t.displaySmall?.copyWith(
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 4,
+                        color: c.onPrimaryContainer,
+                      ),
+                    ),
                     const SizedBox(height: 8),
-                    Text('Adopta, no abandones',
-                        style: t.titleMedium
-                            ?.copyWith(color: c.onSurfaceVariant)),
+                    Text(
+                      'Adopta, no abandones',
+                      style: t.titleMedium?.copyWith(color: c.onSurfaceVariant),
+                    ),
                     const SizedBox(height: 24),
                     const Wrap(
                       spacing: 8,
@@ -57,27 +71,45 @@ class SplashScreen extends StatelessWidget {
                       alignment: WrapAlignment.center,
                       children: [
                         Chip(
-                            avatar: Icon(Icons.search, size: 18),
-                            label: Text('Explora')),
+                          avatar: Icon(Icons.search, size: 18),
+                          label: Text('Explora'),
+                        ),
                         Chip(
-                            avatar: Icon(Icons.favorite, size: 18),
-                            label: Text('Guarda favoritos')),
+                          avatar: Icon(Icons.favorite, size: 18),
+                          label: Text('Guarda favoritos'),
+                        ),
                         Chip(
-                            avatar: Icon(Icons.add_circle, size: 18),
-                            label: Text('Publica')),
+                          avatar: Icon(Icons.add_circle, size: 18),
+                          label: Text('Publica'),
+                        ),
                       ],
                     ),
                     const Spacer(flex: 3),
                     FilledButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/catalog');
-                        },
-                        child: const Text('Comenzar'),
-                        ),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.catalog),
+                      child: const Text('Comenzar'),
+                    ),
+                    TextButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.requirements),
+                      child: const Text('Requisitos para adoptar'),
+                    ),
+                    TextButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.favorites),
+                      child: const Text('Mis favoritos'),
+                    ),
+                    TextButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.publish),
+                      child: const Text('Publicar un animal'),
+                    ),
                     const SizedBox(height: 12),
-                    Text('Tizayuca, Hidalgo',
-                        style: t.bodySmall
-                            ?.copyWith(color: c.onSurfaceVariant)),
+                    Text(
+                      'Tizayuca, Hidalgo',
+                      style: t.bodySmall?.copyWith(color: c.onSurfaceVariant),
+                    ),
                   ],
                 ),
               ),

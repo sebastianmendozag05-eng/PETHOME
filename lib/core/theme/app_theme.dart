@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primario = Color(0xFFFF8A3D);
-  static const Color primarioClaro = Color(0xFFFFF1E6);
-  static const Color acento = Color(0xFFFFB27A);
-  static const Color textoPrincipal = Color(0xFF212121);
-  static const Color textoSecundario = Color(0xFF757575);
-  static const Color fondo = Color(0xFFFAFAFA);
+  static const Color primario = Color(0xFF8D5524);
+  static const Color primarioClaro = Color(0xFFF1E6D6);
+  static const Color acento = Color(0xFFD7263D);
+  static const Color textoPrincipal = Color(0xFF2B1B14);
+  static const Color textoSecundario = Color(0xFF6D5A4E);
+  static const Color fondo = Color(0xFFFBF7F0);
 }
 
 class AppSpacing {
@@ -36,17 +36,12 @@ ThemeData buildPethomeTheme() {
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        color: AppColors.textoSecundario,
-      ),
+      bodyMedium: TextStyle(fontSize: 14, color: AppColors.textoSecundario),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
         minimumSize: const Size.fromHeight(56),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
       ),
     ),
@@ -55,9 +50,7 @@ ThemeData buildPethomeTheme() {
         backgroundColor: AppColors.primario,
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
   );
